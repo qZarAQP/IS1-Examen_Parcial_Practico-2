@@ -32,7 +32,37 @@ public class Cancion {
 	private int valoracion;
 
 
+	public String getnombre(long id_cancion) {
+		return nombre;
+	}
 	
+	public boolean getestado(long id_cancion) {
+		return estado;
+	}
+	
+	public int getvaloracion(long id_cancion) {
+		return valoracion;
+	}
+	
+	public Date getfec_registro(long id_cancion) {
+		return fecha_registro;
+	}
+	
+	public void setnombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setestado(boolean estado) {
+		this.estado = estado;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
 	
 	//dggfgdfgdf
