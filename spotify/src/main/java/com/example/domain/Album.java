@@ -3,7 +3,6 @@ package com.example.domain;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,15 +12,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Artista {
+public class Album {
 	
 	
 	@Id
-	private Long Id_artista;
+	private Long Id_album;
 	
 
 	@Column(length = 64)
@@ -29,7 +27,7 @@ public class Artista {
 
 	
 	@Column(length = 64)
-	private String contraseña;
+	private Long Id_artista;
 	
 	@Column
 	private Boolean estado;
@@ -38,13 +36,7 @@ public class Artista {
 	private Date fecha;
 
 
-	/*
 	
-	@OneToMany(mappedBy = "Artista", cascade = CascadeType.ALL)
-	public List<Album> albumes;
-	
-	*/
-
 
 	public Boolean getestado() {
 		return estado;
@@ -65,19 +57,13 @@ public class Artista {
 	}
 	
 	
-
-	public void crear_album()
+	
+	public void mostrar_canciones()
 	{
 		
 	}
 	
-	public void cargar_canciones()
-	{
-		
-	}
-
-
-
+	
 
 	
 }

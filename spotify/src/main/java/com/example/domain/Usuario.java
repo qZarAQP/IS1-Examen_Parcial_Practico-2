@@ -38,11 +38,10 @@ public class Usuario {
 	@JoinTable(name = "seguidores_user_to_user", 
 		inverseJoinColumns = @JoinColumn(name = "usuario_seguido_id", referencedColumnName = "Id_usuario"),
 		joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "Id_usuario"))
-	private List<Usuario> seguidores;
+	private List<Usuario> seguidores_usuario;
 	
-
 	
-
+	
 
 	public Boolean getestado() {
 		return estado;
@@ -65,11 +64,11 @@ public class Usuario {
 	
 
 	public List<Usuario> getSeguidores() {
-		return seguidores;
+		return seguidores_usuario;
 	}
 
-	public void setSeguidores(List<Usuario> seguidores) {
-		this.seguidores = seguidores;
+	public void setSeguidores(List<Usuario> seguidores_usuario) {
+		this.seguidores_usuario = seguidores_usuario;
 	}
 
 
