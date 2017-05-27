@@ -1,6 +1,7 @@
 package com.example.domain;
 
 import java.util.List;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,34 +16,23 @@ public class Cancion {
 	
 	
 	@Id
-	private Long Id_cancion;
+	private long Id_cancion;
 
 	
-	@Column(length = 64)
+	@Column
 	private String nombre;
 	
-	@Column(length = 20)
-	private String email;
+	@Column
+	private boolean estado;
 	
-	@Column(length = 20)
-	private Integer telefono;
+	@Column
+	private Date fecha_registro;
+	
+	@Column
+	private int valoracion;
 
 
-	public String getemail() {
-		return email;
-	}
-
-	public void setemail(String email) {
-		this.email = email;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+	
 
 	
 	//dggfgdfgdf
