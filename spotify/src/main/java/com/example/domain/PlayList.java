@@ -36,11 +36,11 @@ public class PlayList {
 		return true;
 	}
 	
-	public Boolean reproducir() {
+	public Boolean agregar_cancion() {
 		return true;
 	}
 	
-	public Boolean reproducir() {
+	public Boolean eliminar_cancion() {
 		return true;
 	}	
 
