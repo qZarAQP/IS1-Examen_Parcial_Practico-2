@@ -25,8 +25,29 @@ public class PlayList {
 	private Date fecha;
 	
 	@Column(length = 64)
-	private Long Id_cansion;
+	private String[] Id_cansion;
+
+	
+	public String[] getMostrar_canciones() {
+		return Id_cansion;
+	}
+
+	public Boolean reproducir() {
+		return true;
+	}
+	
+	public Boolean reproducir() {
+		return true;
+	}
+	
+	public Boolean reproducir() {
+		return true;
+	}	
+
 
 }
+	
+	
+
 
 
