@@ -56,16 +56,18 @@ public class Cancion {
 		this.estado = estado;
 	}
 
-	public String getNombre() {
-		return nombre;
+
+	public void setfecha_registro() {
+		
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void reproducir() {
+		
 	}
-
 	
-	//dggfgdfgdf
+	public void getinformacion() {
+		
+	}
 	
 	
 	
