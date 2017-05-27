@@ -99,7 +99,18 @@ public class Administrador {
 		return true;
 		
 	}
-	
+	public void desactivar_album()
+	{
+		
+	}
+	public void crear_ranking()
+	{
+		
+	}
+	public void desactivar_usuario()
+	{
+		
+	}
 	
 	
 	
