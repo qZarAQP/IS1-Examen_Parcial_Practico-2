@@ -17,7 +17,6 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class Album {
 	
-	
 	@Id
 	private Long Id_album;
 	
@@ -34,10 +33,18 @@ public class Album {
 	
 	@Column
 	private Date fecha;
-
-
+	//List<Cancion> canciones;
+/*
+	 @OneToMany(mappedBy = "album_cancion", cascade = CascadeType.ALL)
+	    public List<Cancion> getcanciones() {
+	        return canciones;
+	    }
 	
+*/
 
+	@ManyToOne
+	@JoinColumn(name = "artista")
+	private Artista artista;
 	public Boolean getestado() {
 		return estado;
 	}
@@ -63,7 +70,5 @@ public class Album {
 		
 	}
 	
-	
-
 	
 }

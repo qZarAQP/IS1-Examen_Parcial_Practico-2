@@ -30,9 +30,7 @@ public class Administrador {
 	
 	
 	@Column(nullable = false)
-	private Date created = new Date();
-
-	private Date date;
+	private Date fecha = new Date();
 	
 	
 	public String getpassword() {
@@ -55,22 +53,14 @@ public class Administrador {
 
 
 	
-	public Date getCreated() {
-		return created;
+	public Date getfecha() {
+		return fecha;
 	}
 
-	public void setCreated(Date created) {
-		this.created = created;
+	public void setfecha(Date created) {
+		this.fecha = created;
 	}
 	
-	
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
 	
 	public void login(){
 		

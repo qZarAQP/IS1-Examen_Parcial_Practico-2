@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.Account;
+import com.example.domain.Usuario;
 import com.example.repository.IAccountRepository;
 import com.example.repository.service.TransferService;
 
@@ -28,6 +29,8 @@ public class TransferApplication {
 	
 	@PostConstruct
 	void init() {
+		Usuario a = new Usuario();
+		
 		Account c1 = new Account();
 		c1.setNumero("001");
 		c1.setSaldo(1000d);

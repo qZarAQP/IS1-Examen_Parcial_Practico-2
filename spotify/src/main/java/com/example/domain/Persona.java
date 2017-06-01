@@ -13,7 +13,6 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class Persona {
 	
-	
 	@Id
 	private Long Id_persona;
 
@@ -43,6 +42,4 @@ public class Persona {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	
 }

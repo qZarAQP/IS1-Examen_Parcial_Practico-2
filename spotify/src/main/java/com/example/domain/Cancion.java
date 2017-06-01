@@ -8,12 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Cancion {
-	
 	
 	@Id
 	private long Id_cancion;
@@ -26,11 +28,30 @@ public class Cancion {
 	private boolean estado;
 	
 	@Column
-	private Date fecha_registro;
+	private Date fecha;
 	
 	@Column
 	private int valoracion;
 
+	@ManyToOne
+	@JoinColumn(name = "album")
+	private Album album;
+	
+	
+	
+	@ManyToMany
+	@JoinTable(name = "reproduccion", 
+		inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "Id_usuario"),
+		joinColumns = @JoinColumn(name = "cancion_id", referencedColumnName = "Id_cancion"))
+	private List<Usuario> reprod_user;
+	
+
+	@ManyToMany
+	@JoinTable(name = "valoracion", 
+		inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "Id_usuario"),
+		joinColumns = @JoinColumn(name = "cancion_id", referencedColumnName = "Id_cancion"))
+	private List<Usuario> val_user;
+	
 
 	public String getnombre(long id_cancion) {
 		return nombre;
@@ -44,8 +65,8 @@ public class Cancion {
 		return valoracion;
 	}
 	
-	public Date getfec_registro(long id_cancion) {
-		return fecha_registro;
+	public Date getfecha(long id_cancion) {
+		return fecha;
 	}
 	
 	public void setnombre(String nombre) {
@@ -68,7 +89,15 @@ public class Cancion {
 	public void getinformacion() {
 		
 	}
-	
+	/*
+	public List<Usuario> getUsuario() {
+		return reprod_user;
+	}
+
+	public void setOwners(List<Usuario> reprod_user) {
+		this.reprod_user = reprod_user;
+	}
+	*/
 	
 	
 	

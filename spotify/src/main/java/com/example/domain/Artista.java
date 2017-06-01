@@ -19,7 +19,7 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class Artista {
 	
-	
+
 	@Id
 	private Long Id_artista;
 	
@@ -36,14 +36,13 @@ public class Artista {
 	
 	@Column
 	private Date fecha;
-
-
-	/*
-	
-	@OneToMany(mappedBy = "Artista", cascade = CascadeType.ALL)
-	public List<Album> albumes;
-	
-	*/
+	//List<Album> albumes;
+/*
+	 @OneToMany(mappedBy = "album_artista", cascade = CascadeType.ALL)
+	    public List<Album> getalbumes() {
+	        return albumes;
+	    }
+*/
 
 
 	public Boolean getestado() {

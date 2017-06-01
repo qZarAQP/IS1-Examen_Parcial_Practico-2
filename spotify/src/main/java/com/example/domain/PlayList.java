@@ -2,9 +2,20 @@ package com.example.domain;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+@Entity
 public class PlayList {
 	
 	@Id
@@ -25,11 +36,22 @@ public class PlayList {
 	private Date fecha;
 	
 	@Column(length = 64)
-	private String[] Id_cansion;
+	private String[] Id_cancion;
+	/*
+	
+	public List<Cancion> canciones;
+	 @OneToMany(mappedBy = "playlist_cancion", cascade = CascadeType.ALL)
+	    public List<Cancion> getcanciones() {
+	        return canciones;
+	    }*/
 
+
+	@ManyToOne
+	@JoinColumn(name = "usuario")
+	private Usuario usuario;
 	
 	public String[] getMostrar_canciones() {
-		return Id_cansion;
+		return Id_cancion;
 	}
 
 	public Boolean reproducir() {
@@ -44,7 +66,6 @@ public class PlayList {
 		return true;
 	}	
 //verificando conflictosss
-
 }
 	
 	
