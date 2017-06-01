@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.Account;
 import com.example.domain.Usuario;
+import com.example.repository.AccountRepository;
 import com.example.repository.IAccountRepository;
 import com.example.repository.service.TransferService;
 
@@ -25,8 +26,8 @@ public class TransferApplication {
 	TransferService transferService;
 
 	@Autowired
-	IAccountRepository accountRepository;
-	
+	//IAccountRepository accountRepository;
+	AccountRepository accountRepository;
 	@PostConstruct
 	void init() {
 		Usuario a = new Usuario();
@@ -47,11 +48,13 @@ public class TransferApplication {
 		transferService.transfer(origen, destino, monto);
 	}
 
+	
+	
 	@RequestMapping("/cuentas")
-	@ResponseBody
-	Collection<Account> listarCuentas() {
-		return accountRepository.getAll();
-	}
+  	@ResponseBody
+  	Collection<Account> listarCuentas() {
+  	return accountRepository.findAll();
+  	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(TransferApplication.class, args);

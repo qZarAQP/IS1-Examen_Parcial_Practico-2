@@ -10,18 +10,21 @@ import com.example.domain.Transfer;
 import com.example.repository.IAccountRepository;
 import com.example.repository.TransferRepository;
 
+import com.example.repository.AccountRepository;
 @Component
 public class TransferService {
 
 	@Autowired
-	IAccountRepository repository;
-
+	//IAccountRepository repository;
+	AccountRepository repository;
 	@Autowired
 	TransferRepository transferRepository;
 
 	public void transfer(String cuentaOrigen, String cuentaDestino, double monto) throws Exception {
-		Account source = repository.get(cuentaOrigen);
-		Account target = repository.get(cuentaDestino);
+		Account source = repository.findByNumero(cuentaOrigen);
+		Account target = repository.findByNumero(cuentaDestino);
+		  		
+		
 		double saldo = source.getSaldo();
 		if (saldo >= monto) {
 			source.setSaldo(source.getSaldo() - monto);

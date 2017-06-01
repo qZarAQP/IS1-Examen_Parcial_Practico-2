@@ -3,30 +3,21 @@ package com.example.repository;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+ 
 
 import org.springframework.stereotype.Component;
 
 import com.example.domain.Account;
 
 //@Component
-public class AccountRepository implements IAccountRepository {
-	Map<String, Account> accounts = new HashMap<>();
-
-	@Override
-	public void save(Account account) {
-		accounts.put(account.getNumero(), account);
-	}
-	@Override
-	public Account get(String numero) {
-		return accounts.get(numero);
-	}
-
-	@Override
-	public Collection<Account> getAll() {
-		return accounts.values();
-	}
-	@Override
-	public void remove(String numero) {
-		accounts.remove(numero);
-	}
+public interface AccountRepository extends CrudRepository<Account, String> {
+	
+		@Query("SELECT a FROM Account a WHERE a.numero = ?1")
+		Account findByNumero(String numero);
+		// select a.* from account a
+		 	@Query("SELECT a FROM Account a")
+		 	Collection<Account> findAll();
+	
 }
