@@ -47,7 +47,7 @@ public class TransferApplication {
 		a.setFecha(fecha);*/
 		
 		Persona p = new Persona();
-		p.
+		p.se
 		
 		
 	}
