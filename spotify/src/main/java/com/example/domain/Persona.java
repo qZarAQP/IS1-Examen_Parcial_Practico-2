@@ -36,15 +36,17 @@ public class Persona {
 	public void settelefono(Integer telefono) {
 		this.telefono = telefono;
 	}
-	public String getemail() {
-		return email;
-	}
-
 	
-
 	public String getNombre() {
 		return nombre;
 	}
-
+	
+	public String getemail() {
+		return email;
+	}
+	
+	public String gettelefono() {
+		return telefono;
+	}
 	
 }
