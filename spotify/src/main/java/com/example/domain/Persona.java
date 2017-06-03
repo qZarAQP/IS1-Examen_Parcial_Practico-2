@@ -45,7 +45,7 @@ public class Persona {
 		return email;
 	}
 	
-	public String gettelefono() {
+	public Integer gettelefono() {
 		return telefono;
 	}
 	
