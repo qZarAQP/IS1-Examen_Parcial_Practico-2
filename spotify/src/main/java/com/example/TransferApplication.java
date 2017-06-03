@@ -47,8 +47,9 @@ public class TransferApplication {
 		a.setFecha(fecha);*/
 		
 		Persona p = new Persona();
-		p.se
-		
+		p.setNombre("juan");
+		p.setemail("persona@persona-com");
+		p.settelefono(95863210);
 		
 	}
 

@@ -24,6 +24,10 @@ public class Persona {
 	
 	@Column(length = 20)
 	private Integer telefono;
+	
+	public void setid_persona(Long id_persona) {
+		this.id_persona = id_persona;
+	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
