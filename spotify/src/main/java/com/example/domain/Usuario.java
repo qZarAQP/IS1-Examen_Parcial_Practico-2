@@ -21,7 +21,6 @@ import javax.persistence.SequenceGenerator;
 public class Usuario {
 	@Id
 	private Long Id_usuario;
-
 	
 	@Column(length = 64)
 	private String contraseña;
@@ -53,28 +52,30 @@ public class Usuario {
 	    public List<PlayList> getplaylist() {
 	        return this.playlist;
 	    }*/
-	 
 	
-
-	public Boolean getestado() {
-		return estado;
+	/*Asignacion de valores*/
+	 
+	public void setcontraseña(String password) {
+		this.contraseña = password;
 	}
-
+	
 	public void setestado(Boolean estado) {
 		this.estado = estado;
-	}
-
-
-
-	public Date getFecha() {
-		return fecha;
 	}
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+
+	/*Retorno de valores*/
 	
-	
+	public Boolean getestado() {
+		return estado;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
 
 	public List<Usuario> getSeguidores() {
 		return seguidores_usuario;
@@ -83,7 +84,4 @@ public class Usuario {
 	public void setSeguidores(List<Usuario> seguidores_usuario) {
 		this.seguidores_usuario = seguidores_usuario;
 	}
-
-
-	
 }
