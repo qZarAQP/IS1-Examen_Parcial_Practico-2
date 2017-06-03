@@ -48,15 +48,15 @@ public class Usuario {
 	
 	@ManyToMany
 	@JoinTable(name = "seguidores_artist_to_user", 
-		inverseJoinColumns = @JoinColumn(name = "usuario_seguidor_id", referencedColumnName = "Id_usuario"),
+		inverseJoinColumns = @JoinColumn(name = "usuario_seguidor_id", referencedColumnName = "Id_artista"),
 		joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "Id_usuario"))
-	private List<Usuario> seguidores_artist;
+	private List<Artista> seguidores_artist;
 	
 	@ManyToMany
 	@JoinTable(name = "seguidos_artist_to_user", 
-		inverseJoinColumns = @JoinColumn(name = "usuario_seguido_id", referencedColumnName = "Id_usuario"),
+		inverseJoinColumns = @JoinColumn(name = "usuario_seguido_id", referencedColumnName = "Id_artista"),
 		joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "Id_usuario"))
-	private List<Usuario> seguidos_artist;
+	private List<Artista> seguidos_artist;
 	
 	/*
 	public List<PlayList> playlist;
