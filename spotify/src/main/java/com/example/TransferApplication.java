@@ -1,5 +1,6 @@
 package com.example;
 
+import java.sql.Date;
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
@@ -48,7 +49,9 @@ public class TransferApplication {
 		
 		a.setcontrasena("0la0");
 		a.setestado(true);
-		a.setFecha(fecha);
+		Date s= new Date(1, 10, 1995);
+		
+		a.setFecha(s);
 		userRepository.save(a);
 		
 		/*
