@@ -14,9 +14,8 @@ import javax.persistence.SequenceGenerator;
 public class Persona {
 	
 	@Id
-	private Long Id_persona;
+	private Long id_persona;
 
-	
 	@Column(length = 64)
 	private String nombre;
 	
@@ -26,20 +25,26 @@ public class Persona {
 	@Column(length = 20)
 	private Integer telefono;
 
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public void setemail(String email) {
+		this.email = email;
+	}
 
+	public void settelefono(Integer telefono) {
+		this.telefono = telefono;
+	}
 	public String getemail() {
 		return email;
 	}
 
-	public void setemail(String email) {
-		this.email = email;
-	}
+	
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+	
 }
