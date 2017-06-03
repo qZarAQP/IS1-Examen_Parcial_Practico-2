@@ -46,6 +46,18 @@ public class Usuario {
 		joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "Id_usuario"))
 	private List<Usuario> seguidos_usuario;
 	
+	@ManyToMany
+	@JoinTable(name = "seguidores_artist_to_user", 
+		inverseJoinColumns = @JoinColumn(name = "usuario_seguidor_id", referencedColumnName = "Id_usuario"),
+		joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "Id_usuario"))
+	private List<Usuario> seguidores_artist;
+	
+	@ManyToMany
+	@JoinTable(name = "seguidos_artist_to_user", 
+		inverseJoinColumns = @JoinColumn(name = "usuario_seguido_id", referencedColumnName = "Id_usuario"),
+		joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "Id_usuario"))
+	private List<Usuario> seguidos_artist;
+	
 	/*
 	public List<PlayList> playlist;
 	 @OneToMany(fetch = FetchType.LAZY, mappedBy = "playlist_user")
