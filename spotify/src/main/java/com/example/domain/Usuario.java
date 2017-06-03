@@ -23,7 +23,7 @@ public class Usuario {
 	private Long Id_usuario;
 	
 	@Column(length = 64)
-	private String contraseña;
+	private String contrasena;
 	
 	@Column
 	private Boolean estado;
@@ -67,8 +67,8 @@ public class Usuario {
 	
 	/*Asignacion de valores*/
 	 
-	public void setcontraseña(String password) {
-		this.contraseña = password;
+	public void setcontrasena(String password) {
+		this.contrasena = password;
 	}
 	
 	public void setestado(Boolean estado) {

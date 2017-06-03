@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.domain.Usuario;
 
-/*
+
 public interface UserRepository extends CrudRepository<Usuario, Long>{
 
 	@Query("SELECT a FROM Usuario a WHERE a.numero = ?1")
@@ -18,4 +18,3 @@ public interface UserRepository extends CrudRepository<Usuario, Long>{
 	 	Collection<Usuario> findAll();
 	
 }
-*/
