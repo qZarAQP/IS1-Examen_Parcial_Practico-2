@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.Account;
 import com.example.domain.Usuario;
+import com.example.domain.Persona;
 import com.example.repository.AccountRepository;
 import com.example.repository.IAccountRepository;
 import com.example.repository.service.TransferService;
@@ -40,6 +41,13 @@ public class TransferApplication {
 		c2.setSaldo(100d);
 		accountRepository.save(c1);
 		accountRepository.save(c2);
+		/*
+		a.setcontraseña("0la0");
+		a.setestado(true);
+		a.setFecha(fecha);*/
+		
+		Persona p = new Persona();
+		p.
 		
 		
 	}
