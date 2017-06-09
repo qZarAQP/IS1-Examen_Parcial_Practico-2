@@ -10,14 +10,12 @@ import java.net.UnknownServiceException;
 import java.util.List;
 
 
-import com.example.domain.Usuario;
+import com.example.domain.Administrador;
 
 
-
-@Component
-public  interface UserRepository extends CrudRepository<Usuario, Long>  {
+public  interface AdminRepository extends CrudRepository<Administrador, Long>  {
 
 	
-	@Query("SELECT a FROM Usuario a")
-	Collection<Usuario> findAll();
+	@Query("SELECT a FROM Administrador a")
+	Collection<Administrador> findAll();
 }

@@ -14,10 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.Account;
+import com.example.domain.Administrador;
 import com.example.domain.Usuario;
 import com.example.domain.Persona;
 import com.example.repository.AccountRepository;
-
+import com.example.repository.AdminRepository;
 import com.example.repository.UserRepository;
 import com.example.repository.IAccountRepository;
 import com.example.repository.UserRepository;
@@ -33,11 +34,12 @@ public class TransferApplication {
 	@Autowired
 	//IAccountRepository accountRepository;
 	AccountRepository accountRepository;
-<<<<<<< HEAD
+	
 	@Autowired
-=======
->>>>>>> 69917d9f130177b16f08c510783f1c6de99bf0f3
 	UserRepository userRepository;
+	
+	@Autowired
+	AdminRepository adminRepository;
 	@PostConstruct
 	void init() {
 		Usuario a = new Usuario();
@@ -50,35 +52,7 @@ public class TransferApplication {
 		c2.setSaldo(100d);
 		accountRepository.save(c1);
 		accountRepository.save(c2);
-		
-<<<<<<< HEAD
-		a.setcontrasena("0la0");
-		a.setestado(true);
-	//	a.setFecha(fecha);
-	//	userRepository.save(a);
-		
-		/*
-		
-=======
-		
-		a.setcontrasena("0la0");
-		a.setestado(true);
-		Date s= new Date(1, 10, 1995);
-		
-		a.setFecha(s);
-		userRepository.save(a);
->>>>>>> 69917d9f130177b16f08c510783f1c6de99bf0f3
-		
-		/*
-		Persona p = new Persona();
-		p.setNombre("juan");
-		p.setemail("persona@persona.com");
-		p.settelefono(95863210);
-		*/
-<<<<<<< HEAD
-=======
-		
->>>>>>> 69917d9f130177b16f08c510783f1c6de99bf0f3
+
 	}
 
 	@RequestMapping("/transferir")
@@ -87,10 +61,7 @@ public class TransferApplication {
 		transferService.transfer(origen, destino, monto);
 	}
 
-<<<<<<< HEAD
-	
-=======
->>>>>>> 69917d9f130177b16f08c510783f1c6de99bf0f3
+
 	@RequestMapping("/cuentas")
   	@ResponseBody
   	Collection<Account> listarCuentas() {
@@ -101,6 +72,12 @@ public class TransferApplication {
   	@ResponseBody
   	Collection<Usuario> listarUsuario() {
   	return userRepository.findAll();
+  	}
+	
+	@RequestMapping("/admin")
+  	@ResponseBody
+  	Collection<Administrador> listarAdmin() {
+  	return adminRepository.findAll();
   	}
 
 	public static void main(String[] args) {
