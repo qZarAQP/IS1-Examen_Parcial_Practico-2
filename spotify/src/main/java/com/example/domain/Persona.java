@@ -1,29 +1,38 @@
 package com.example.domain;
 
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
+
+
 
 @Entity
-public class Persona {
-	
-	@Id
-	private Long id_persona;
+@Inheritance(strategy=InheritanceType.JOINED)
+public abstract class Persona {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id_persona;
 	@Column(length = 64)
 	private String nombre;
-	
 	@Column(length = 20)
 	private String email;
-	
 	@Column(length = 20)
 	private Integer telefono;
+	@Column
+	private Date fecha;
+	@Column 
+	private Boolean estado;
+
+	public Persona(String nombre, String email,
+				  Integer telefono){//, Date fecha) {
+		this.nombre = nombre;
+		this.email = email;
+		this.telefono = telefono;
+		//this.fecha = fecha;
+		this.estado = true;
+	}
 	
 	public void setid_persona(Long id_persona) {
 		this.id_persona = id_persona;

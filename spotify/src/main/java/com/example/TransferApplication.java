@@ -17,6 +17,7 @@ import com.example.domain.Usuario;
 import com.example.domain.Persona;
 import com.example.repository.AccountRepository;
 import com.example.repository.IAccountRepository;
+import com.example.repository.UserRepository;
 import com.example.repository.service.TransferService;
 
 @Controller
@@ -29,6 +30,8 @@ public class TransferApplication {
 	@Autowired
 	//IAccountRepository accountRepository;
 	AccountRepository accountRepository;
+	@Autowired
+	UserRepository userRepository;
 	@PostConstruct
 	void init() {
 		Usuario a = new Usuario();
@@ -41,16 +44,20 @@ public class TransferApplication {
 		c2.setSaldo(100d);
 		accountRepository.save(c1);
 		accountRepository.save(c2);
-		/*
-		a.setcontraseña("0la0");
+		
+		a.setcontrasena("0la0");
 		a.setestado(true);
-		a.setFecha(fecha);*/
+	//	a.setFecha(fecha);
+	//	userRepository.save(a);
+		
+		/*
+		
 		
 		Persona p = new Persona();
 		p.setNombre("juan");
 		p.setemail("persona@persona-com");
 		p.settelefono(95863210);
-		
+		*/
 	}
 
 	@RequestMapping("/transferir")
@@ -60,11 +67,16 @@ public class TransferApplication {
 	}
 
 	
-	
 	@RequestMapping("/cuentas")
   	@ResponseBody
   	Collection<Account> listarCuentas() {
   	return accountRepository.findAll();
+  	}
+
+	@RequestMapping("/usuarios")
+  	@ResponseBody
+  	Collection<Usuario> listarUsuario() {
+  	return userRepository.findAll();
   	}
 
 	public static void main(String[] args) {
