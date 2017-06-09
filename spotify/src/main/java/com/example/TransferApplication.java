@@ -1,5 +1,6 @@
 package com.example;
 
+import java.sql.Date;
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
@@ -16,6 +17,8 @@ import com.example.domain.Account;
 import com.example.domain.Usuario;
 import com.example.domain.Persona;
 import com.example.repository.AccountRepository;
+
+import com.example.repository.UserRepository;
 import com.example.repository.IAccountRepository;
 import com.example.repository.UserRepository;
 import com.example.repository.service.TransferService;
@@ -30,7 +33,10 @@ public class TransferApplication {
 	@Autowired
 	//IAccountRepository accountRepository;
 	AccountRepository accountRepository;
+<<<<<<< HEAD
 	@Autowired
+=======
+>>>>>>> 69917d9f130177b16f08c510783f1c6de99bf0f3
 	UserRepository userRepository;
 	@PostConstruct
 	void init() {
@@ -45,6 +51,7 @@ public class TransferApplication {
 		accountRepository.save(c1);
 		accountRepository.save(c2);
 		
+<<<<<<< HEAD
 		a.setcontrasena("0la0");
 		a.setestado(true);
 	//	a.setFecha(fecha);
@@ -52,12 +59,26 @@ public class TransferApplication {
 		
 		/*
 		
+=======
 		
+		a.setcontrasena("0la0");
+		a.setestado(true);
+		Date s= new Date(1, 10, 1995);
+		
+		a.setFecha(s);
+		userRepository.save(a);
+>>>>>>> 69917d9f130177b16f08c510783f1c6de99bf0f3
+		
+		/*
 		Persona p = new Persona();
 		p.setNombre("juan");
-		p.setemail("persona@persona-com");
+		p.setemail("persona@persona.com");
 		p.settelefono(95863210);
 		*/
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 69917d9f130177b16f08c510783f1c6de99bf0f3
 	}
 
 	@RequestMapping("/transferir")
@@ -66,7 +87,10 @@ public class TransferApplication {
 		transferService.transfer(origen, destino, monto);
 	}
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 69917d9f130177b16f08c510783f1c6de99bf0f3
 	@RequestMapping("/cuentas")
   	@ResponseBody
   	Collection<Account> listarCuentas() {
