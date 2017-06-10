@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -52,14 +54,23 @@ public class TransferApplication {
 		c2.setSaldo(100d);
 		accountRepository.save(c1);
 		accountRepository.save(c2);
-
+		
+		
 	}
 
-	@RequestMapping("/transferir")
+/*	@RequestMapping("/transferir")
 	void transferir(@RequestParam String origen, @RequestParam String destino, 
 			@RequestParam Double monto) throws Exception {
 		transferService.transfer(origen, destino, monto);
 	}
+	*/
+	
+	@RequestMapping(value = "/transferir", method = RequestMethod.POST)
+	 	@ResponseBody
+	 	Boolean transferir(@RequestBody TransferBean transfer) throws Exception {
+	 		transferService.transfer(transfer.origen, transfer.destino, transfer.monto);
+	 		return Boolean.TRUE;
+	  	}
 
 
 	@RequestMapping("/cuentas")
@@ -83,4 +94,10 @@ public class TransferApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TransferApplication.class, args);
 	}
+}
+
+class TransferBean {
+	 	public String origen;
+	 	public String destino;
+	 	public Double monto;
 }

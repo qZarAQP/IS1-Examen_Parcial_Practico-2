@@ -1,9 +1,35 @@
 <html>
+<head>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="lib.js"></script>
+</head>
 <body>
 
-<!-- el # en javascript es el id en html -->
-hola
-<input />
+<h2>Listado de Cuentas</h2>
+<ul id="cuentas"></ul>
+
+<h2>Transferencia</h2>
+
+<table>
+	<tbody>
+	<tr>
+		<td>Origen:</td>
+		<td><input id="origen" /></td>
+	</tr>
+	<tr>
+		<td>Destino:</td>
+		<td><input id="destino" /></td>
+	</tr>
+	<tr>
+		<td>Monto:</td>
+		<td><input id="monto" /></td>
+	</tr>
+	<tr>
+		<td><button onclick="transferir()">Transferir</button></td>
+		<td></td>
+	</tr>
+	</tbody>
+</table>
+
 </body>
 </html>
-
