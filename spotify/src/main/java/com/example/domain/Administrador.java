@@ -9,18 +9,24 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SequenceGenerator;
 
 import org.hibernate.validator.constraints.Email;
 
 @Entity
-public class Administrador {
+@PrimaryKeyJoinColumn(referencedColumnName="Id_persona")
+public class Administrador extends Persona{
 	
 	
-	@Id
+	public Administrador(String nombre, String email, Integer telefono) {
+		super(nombre, email, telefono);
+		// TODO Auto-generated constructor stub
+	}
+	/*@Id
 	private Long Id_administrador;
 
-	
+	*/
 	@Column(length = 64)
 	private String password;
 	

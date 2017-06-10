@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-public abstract class Persona {
+public class Persona {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
