@@ -20,7 +20,7 @@ function transferir() {
 		"destino": destino
 	};
 	
-	alert("transfiriendo: " + monto + " desde " + origen + " a " + destino);
+	//alert("transfiriendo: " + monto + " desde " + origen + " a " + destino);
 
 
 	$.post( "transferir", transfer ).done(function( data ) {
