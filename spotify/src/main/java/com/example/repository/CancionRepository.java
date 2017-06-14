@@ -8,9 +8,9 @@ import org.springframework.data.repository.CrudRepository;
 import com.example.domain.Administrador;
 import com.example.domain.Cancion;
 
-public interface CansionRepository extends CrudRepository<Cancion, Long>{
-	
+public interface CancionRepository extends CrudRepository<Cancion, Long>{
+
 	@Query("SELECT a FROM Cancion a")
 	Collection<Cancion> findAll();
-
+	
 }

@@ -6,11 +6,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.example.domain.Administrador;
-import com.example.domain.Cancion;
+import com.example.domain.Album;
 
-public interface CansionRepository extends CrudRepository<Cancion, Long>{
+public interface AlbumRepository extends CrudRepository<Album, Long> {
 	
-	@Query("SELECT a FROM Cancion a")
-	Collection<Cancion> findAll();
-
+	@Query("SELECT a FROM Album a")
+	Collection<Album> findAll();
 }

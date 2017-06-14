@@ -17,12 +17,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.Account;
 import com.example.domain.Administrador;
+import com.example.domain.Album;
+import com.example.domain.Cancion;
 import com.example.domain.Usuario;
 import com.example.domain.Persona;
+import com.example.domain.PlayList;
 import com.example.repository.AccountRepository;
 import com.example.repository.AdminRepository;
+import com.example.repository.AlbumRepository;
+import com.example.repository.CancionRepository;
 import com.example.repository.UserRepository;
 import com.example.repository.IAccountRepository;
+import com.example.repository.PlayListRepository;
 import com.example.repository.UserRepository;
 import com.example.repository.service.TransferService;
 
@@ -39,6 +45,15 @@ public class TransferApplication {
 	
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	CancionRepository cancionRepository;
+	
+	@Autowired
+	PlayListRepository playListRepository;
+	
+	@Autowired
+	AlbumRepository albumRepository;
 	
 	@Autowired
 	AdminRepository adminRepository;
@@ -91,6 +106,25 @@ public class TransferApplication {
   	return adminRepository.findAll();
   	}
 
+	@RequestMapping("/songs")
+  	@ResponseBody
+  	Collection<Cancion> listarCanciones() {
+  	return cancionRepository.findAll();
+  	}
+	
+	@RequestMapping("/playlists")
+  	@ResponseBody
+  	Collection<PlayList> listarPlayLists() {
+  	return playListRepository.findAll();
+  	}
+	
+
+	@RequestMapping("/albums")
+  	@ResponseBody
+  	Collection<Album> listarAlbums() {
+  	return albumRepository.findAll();
+  	}
+	
 	public static void main(String[] args) {
 		SpringApplication.run(TransferApplication.class, args);
 	}
