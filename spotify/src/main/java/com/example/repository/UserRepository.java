@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.net.UnknownServiceException;
 import java.util.List;
 
-
+import com.example.domain.Account;
 import com.example.domain.Usuario;
 
 
@@ -20,4 +20,9 @@ public  interface UserRepository extends CrudRepository<Usuario, Long>  {
 	
 	@Query("SELECT a FROM Usuario a")
 	Collection<Usuario> findAll();
+	
+	@Query("SELECT a FROM Usuario a WHERE a.id = ?1")
+	Usuario findByNumero(long id);
+
+	
 }
