@@ -1,3 +1,17 @@
+$.postJSON = function(url, data, callback) {
+    return jQuery.ajax({
+        'type': 'POST',
+        'url': url,
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'        	
+        },
+        'data': JSON.stringify(data),
+        'dataType': 'json',
+        'success': callback
+    });
+};
+
 function listarCuentas() {
 	$.getJSON( "cuentas", function( data ) {
 		$("#cuentas").html("");
@@ -23,9 +37,9 @@ function transferir() {
 	//alert("transfiriendo: " + monto + " desde " + origen + " a " + destino);
 
 
-	$.post( "transferir", transfer ).done(function( data ) {
+	$.postJSON( "transferir", transfer, function( data ) {
 		listarCuentas();
-	//	alert("coaj");
+	
 	});
 
 }
