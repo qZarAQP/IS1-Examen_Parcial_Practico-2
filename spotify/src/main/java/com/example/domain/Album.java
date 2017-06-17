@@ -12,13 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Album {
 	
 	@Id
-	private Long Id_album;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
 	
 
 	@Column(length = 64)
@@ -26,13 +28,24 @@ public class Album {
 
 	
 	@Column(length = 64)
-	private Long Id_artista;
+	private Long id_artista;
 	
 	@Column
 	private Boolean estado;
 	
 	@Column
 	private Date fecha;
+	
+
+	public Album(String nombre, 
+				  Long id_artista, Date fecha) {
+		this.nombre = nombre;
+		this.id_artista = id_artista;
+		this.fecha = fecha;
+		this.estado = true;
+	}
+	
+	
 	//List<Cancion> canciones;
 /*
 	 @OneToMany(mappedBy = "album_cancion", cascade = CascadeType.ALL)
@@ -45,6 +58,15 @@ public class Album {
 	@ManyToOne
 	@JoinColumn(name = "artista")
 	private Artista artista;
+	
+
+	
+
+
+    @OneToMany(mappedBy = "id_album")
+    private List<Cancion> canciones;
+
+
 	public Boolean getestado() {
 		return estado;
 	}

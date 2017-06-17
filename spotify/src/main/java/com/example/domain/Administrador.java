@@ -15,29 +15,27 @@ import javax.persistence.SequenceGenerator;
 import org.hibernate.validator.constraints.Email;
 
 @Entity
-@PrimaryKeyJoinColumn(referencedColumnName="Id_persona")
+@PrimaryKeyJoinColumn(referencedColumnName="id")
 public class Administrador extends Persona{
 	
-	
-	public Administrador(String nombre, String email, Integer telefono) {
-		super(nombre, email, telefono);
-		// TODO Auto-generated constructor stub
-	}
-	/*@Id
-	private Long Id_administrador;
-
-	*/
+	@Column(length = 64)
+	private String nickname;
 	@Column(length = 64)
 	private String password;
-	
-	@Column(length = 20)
-	private Boolean estado;
 	
 	
 	
 	@Column(nullable = false)
 	private Date fecha = new Date();
 	
+	
+	public Administrador(String nombre, String email, Integer telefono,Date fecha,String nickname,String password) {
+		super(nombre, email, telefono, fecha);
+		// TODO Auto-generated constructor stub
+		
+		this.nickname=nickname;
+		this.password=password;
+	}
 	
 	public String getpassword() {
 		return password;
@@ -47,16 +45,7 @@ public class Administrador extends Persona{
 		this.password = password;
 	}
 
-	public Boolean getestado() {
-		return estado;
-	}
-
-	public void setestado(Boolean estado) {
-		this.estado = estado;
-	}
-
-
-
+	
 
 	
 	public Date getfecha() {

@@ -17,8 +17,10 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class Cancion {
 	
+
 	@Id
-	private long Id_cancion;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;
 
 	
 	@Column
@@ -32,24 +34,42 @@ public class Cancion {
 	
 	@Column
 	private int valoracion;
+	
+	@Column
+	private Long id_album;
+
+	private Long id_playlist;
+	
+	
+
+	public Cancion(String nombre, Long id_album,
+				  Long id_artista, Date fecha) {
+		this.nombre = nombre;
+		this.id_album = id_album;
+		this.fecha = fecha;
+		this.estado = true;
+		this.valoracion=0;
+	}
+	
 
 	@ManyToOne
 	@JoinColumn(name = "album")
 	private Album album;
 	
-	
+
+
 	
 	@ManyToMany
 	@JoinTable(name = "reproduccion", 
-		inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "Id_usuario"),
-		joinColumns = @JoinColumn(name = "cancion_id", referencedColumnName = "Id_cancion"))
+		inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
+		joinColumns = @JoinColumn(name = "cancion_id", referencedColumnName = "id"))
 	private List<Usuario> reprod_user;
 	
 
 	@ManyToMany
 	@JoinTable(name = "valoracion", 
-		inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "Id_usuario"),
-		joinColumns = @JoinColumn(name = "cancion_id", referencedColumnName = "Id_cancion"))
+		inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
+		joinColumns = @JoinColumn(name = "cancion_id", referencedColumnName = "id"))
 	private List<Usuario> val_user;
 	
 

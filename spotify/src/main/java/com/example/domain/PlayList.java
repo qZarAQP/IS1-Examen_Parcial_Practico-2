@@ -8,6 +8,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,8 +20,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Entity
 public class PlayList {
 	
+
 	@Id
-	private Long Id_playlist;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
 	
 
 	@Column(length = 64)
@@ -27,7 +31,7 @@ public class PlayList {
 
 	
 	@Column(length = 64)
-	private Long Id_usuario;
+	private Long id_usuario;
 	
 	@Column
 	private Boolean estado;
@@ -36,7 +40,18 @@ public class PlayList {
 	private Date fecha;
 	
 	@Column(length = 64)
-	private String[] Id_cancion;
+	private Long id_cancion;
+	
+	public PlayList(String nombre, Long id_usuario,
+			   Date fecha,Long id_cancion) {
+	this.nombre = nombre;
+	this.id_usuario = id_usuario;
+	this.fecha = fecha;
+	this.estado = true;
+	this.id_cancion=id_cancion;
+}
+
+	
 	/*
 	
 	public List<Cancion> canciones;
@@ -44,14 +59,19 @@ public class PlayList {
 	    public List<Cancion> getcanciones() {
 	        return canciones;
 	    }*/
+	
+
+    @OneToMany(mappedBy = "id_playlist")
+    private List<Cancion> canciones;
+
 
 
 	@ManyToOne
 	@JoinColumn(name = "usuario")
 	private Usuario usuario;
 	
-	public String[] getMostrar_canciones() {
-		return Id_cancion;
+	public Long getMostrar_canciones() {
+		return id_cancion;
 	}
 
 	public Boolean reproducir() {

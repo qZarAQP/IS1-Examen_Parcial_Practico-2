@@ -25,7 +25,7 @@ function transferir() {
 
 	$.post( "transferir", transfer ).done(function( data ) {
 		listarCuentas();
-		alert("coaj");
+	//	alert("coaj");
 	});
 
 }

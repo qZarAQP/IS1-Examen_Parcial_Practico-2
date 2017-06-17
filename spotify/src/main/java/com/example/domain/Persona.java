@@ -13,7 +13,7 @@ public class Persona {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id_persona;
+	private Long id;
 	@Column(length = 64)
 	private String nombre;
 	@Column(length = 20)
@@ -25,18 +25,17 @@ public class Persona {
 	@Column 
 	private Boolean estado;
 
+	
 	public Persona(String nombre, String email,
-				  Integer telefono){//, Date fecha) {
+				  Integer telefono, Date fecha) {
 		this.nombre = nombre;
 		this.email = email;
 		this.telefono = telefono;
-		//this.fecha = fecha;
+		this.fecha = fecha;
 		this.estado = true;
 	}
 	
-	public void setid_persona(Long id_persona) {
-		this.id_persona = id_persona;
-	}
+	
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
