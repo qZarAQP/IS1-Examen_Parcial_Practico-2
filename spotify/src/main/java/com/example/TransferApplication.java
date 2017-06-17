@@ -168,32 +168,55 @@ public class TransferApplication {
   	Collection<Account> listarCuentas() {
   	return accountRepository.findAll();
   	}
-
+	
+	///******Metodos de Usuario**********
 	@RequestMapping("/usuarios")
   	@ResponseBody
   	Collection<Usuario> listarUsuario() {
   	return userRepository.findAll();
   	}
+	//----crear nuevo play list solo que no se como XD
+	@RequestMapping(value = "/crearPlayList", method = RequestMethod.POST)
+ 	@ResponseBody
+ 	Boolean crearPlayList(@RequestBody TransferBean transfer) throws Exception {
+ 		transferService.transfer(transfer.origen, transfer.destino, transfer.monto);
+ 		return Boolean.TRUE;
+  	}
 	
+	//----eliminar  play list solo que no se como XD x3!
+	@RequestMapping(value = "/deletedPlayList", method = RequestMethod.POST)
+ 	@ResponseBody
+ 	Boolean deletedPlayList(@RequestBody TransferBean transfer) throws Exception {
+ 		transferService.transfer(transfer.origen, transfer.destino, transfer.monto);
+ 		return Boolean.TRUE;
+  	}
+	
+	
+	///******Metodos de Admin**********
 	@RequestMapping("/admin")
   	@ResponseBody
   	Collection<Administrador> listarAdmin() {
   	return adminRepository.findAll();
   	}
-
+	
+	
+	///******Metodos de Cancion**********
 	@RequestMapping("/songs")
   	@ResponseBody
   	Collection<Cancion> listarCanciones() {
   	return cancionRepository.findAll();
   	}
 	
+	
+	///******Metodos de PlayList**********
 	@RequestMapping("/playlists")
   	@ResponseBody
   	Collection<PlayList> listarPlayLists() {
   	return playListRepository.findAll();
   	}
 	
-
+	
+	///******Metodos de Album**********
 	@RequestMapping("/albums")
   	@ResponseBody
   	Collection<Album> listarAlbums() {
