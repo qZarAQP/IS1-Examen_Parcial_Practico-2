@@ -17,7 +17,9 @@ public interface AccountRepository extends CrudRepository<Account, String> {
 		@Query("SELECT a FROM Account a WHERE a.numero = ?1")
 		Account findByNumero(String numero);
 		// select a.* from account a
-		 	@Query("SELECT a FROM Account a")
-		 	Collection<Account> findAll();
+		
+		
+		@Query("SELECT a FROM Account a")
+		Collection<Account> findAll();
 	
 }
