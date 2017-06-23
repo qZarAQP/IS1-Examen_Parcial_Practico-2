@@ -35,6 +35,11 @@ public class Usuario extends Persona {
 
 	@Column
 	private Date fecha;
+	
+	public Usuario(){
+		
+	}
+
 
 	public Usuario(String nombre, String email, Integer telefono, Date fecha,String nickname,String password) {
 		super(nombre, email, telefono, fecha);

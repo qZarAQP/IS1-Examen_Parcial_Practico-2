@@ -5,11 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 import java.net.UnknownServiceException;
 import java.util.List;
 
 import com.example.domain.Account;
+import com.example.domain.Administrador;
+import com.example.domain.Persona;
 import com.example.domain.Usuario;
 
 
@@ -27,6 +30,10 @@ public  interface UserRepository extends CrudRepository<Usuario, Long>  {
 	//Con esa consulta se mostrara el primer pantallazo para el Usuario
 	@Query("SELECT a FROM Usuario a WHERE a.id = ?1")
 	Usuario findByNumero(long id);
+
+
+	@Query("SELECT u FROM Usuario u WHERE u.password= ?2  and u.nickname= ?1 ")
+	Usuario validarLogin(String usuario, String password);
 
 	
 }

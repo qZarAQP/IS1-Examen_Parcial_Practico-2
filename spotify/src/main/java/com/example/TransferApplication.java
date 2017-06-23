@@ -94,8 +94,8 @@ public class TransferApplication {
 	//	Persona p1 =new Persona("persona"+Integer.toString(i), "persona"+Integer.toString(i)+"@ucsp",i*10000, Date.from(Instant.EPOCH));
 		Usuario u1 =new Usuario("user"+Integer.toString(i),"user"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"user"+Integer.toString(i),"user"+Integer.toString(i));
 		Administrador a1 =new Administrador("admin"+Integer.toString(i),"admin"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"admin"+Integer.toString(i),"admin"+Integer.toString(i));
-		Artista s1 =new Artista("artist"+Integer.toString(i),"artist"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"artist"+Integer.toString(i),"artist"+Integer.toString(i));
-		Cancion c=new Cancion("song"+Integer.toString(i),Integer.toUnsignedLong(i),Integer.toUnsignedLong(i),Date.from(Instant.EPOCH));
+//		Artista s1 =new Artista("artist"+Integer.toString(i),"artist"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"artist"+Integer.toString(i),"artist"+Integer.toString(i));
+	//	Cancion c=new Cancion("song"+Integer.toString(i),Integer.toUnsignedLong(i),Integer.toUnsignedLong(i),Date.from(Instant.EPOCH));
 		
 
 	//	personaRepository.save(p1);
@@ -131,11 +131,22 @@ public class TransferApplication {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	 	@ResponseBody
 	 	Boolean login(@RequestBody User user) throws Exception {
+		System.out.println("guardando: *********************************" );
+
 		
 	 		loginService.login(user.usuario, user.password);
 	 		return Boolean.TRUE;
 	  	}
+
+	@RequestMapping(value = "/registro", method = RequestMethod.POST)
+ 	@ResponseBody
+ 	Boolean registro(@RequestBody User user) throws Exception {
+	System.out.println("guardando: *********************************" );
+
 	
+ 		loginService.login(user.usuario, user.password);
+ 		return Boolean.TRUE;
+  	}
 	
 	
 	
@@ -168,6 +179,9 @@ public class TransferApplication {
   	Collection<Account> listarCuentas() {
   	return accountRepository.findAll();
   	}
+	
+	
+	/*
 	
 	///******Metodos de Usuario**********
 	@RequestMapping("/usuarios")
@@ -222,7 +236,7 @@ public class TransferApplication {
   	Collection<Album> listarAlbums() {
   	return albumRepository.findAll();
   	}
-	
+	*/
 	public static void main(String[] args) {
 		SpringApplication.run(TransferApplication.class, args);
 	}

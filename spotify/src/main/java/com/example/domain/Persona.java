@@ -34,6 +34,8 @@ public class Persona {
 		this.fecha = fecha;
 		this.estado = true;
 	}
+	public Persona(){}
+	
 	
 	
 
