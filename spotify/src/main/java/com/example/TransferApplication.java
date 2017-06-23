@@ -135,13 +135,13 @@ public class TransferApplication {
 
 		
 	 		loginService.login(user.usuario, user.password);
-	 		return Boolean.TRUE;
+	 		return registro(user);
 	  	}
 
 	@RequestMapping(value = "/registro", method = RequestMethod.POST)
  	@ResponseBody
  	Boolean registro(@RequestBody User user) throws Exception {
-	System.out.println("guardando: *********************************" );
+	System.out.println("guardando: *************************** registro******" );
 
 	
  		loginService.login(user.usuario, user.password);

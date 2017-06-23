@@ -1,57 +1,68 @@
+
+<!DOCTYPE html>
 <html>
 <head>
-		<script type="text/javascript" src="user_login.js"></script>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/user_login.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
 
 
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
 </head>
+
 <body>
-
-
-<h2>Registrate</h2>
-
-<div align="center">
+  <div class="login">
+	<h1>Registrate</h1>
 
 <table>
 	<tbody>
 	<tr>
 		<td>Nombres:</td>
-		<td><input id="nombre" /></td>
+		<td><input type="text" id="nombre" name="u" placeholder="Username" required="required" />
+		</td>
 	</tr>
 	<tr>
 		<td>Apellidos:</td>
-		<td><input id="apellidos" /></td>
+		<td>    	<input type="text" id="usuario" name="u" placeholder="Username" required="required"  id="apellidos" /></td>
 	</tr>
 	<tr>
 		<td>Nickname:</td>
-		<td><input id="nickname" /></td>
+		<td>    	<input type="text"  name="u" placeholder="Nickname" required="required"  id="nickname" /></td>
 	</tr>
 	
 	<tr>
 		<td>E-mail:</td>
-		<td><input id="email" /></td>
+		<td>    	<input type="text"  name="u" placeholder="example@gmail.com" required="required"  id="email" /></td>
 	</tr>
 	<tr>
 		<td>Password:</td>
-		<td><input id="password" /></td>
+		<td>          <input type="password" id="password"  name="p" placeholder="********" required="required"  id="password" /></td>
 	</tr>
 	
 	<tr>
-		<td>Teléfono:</td>
-		<td><input id="telefono" /></td>
+		<td>Telefono:</td>
+		<td>  <input type="text" name="u" placeholder="Telefono" required="required"  id="telefono" /></td>
 	</tr>
 	
 	<tr>
-		<td><button onclick="registrate()">OK</button></td>
+		<td>    <button type="submit" class="btn btn-primary btn-block btn-large"  onclick="registrate()">OK</button></td>
 		<td></td>
 	</tr>
 	</tbody>
 </table>
-
+   
+    
 </div>
-
 </body>
 </html>
+  
+  
