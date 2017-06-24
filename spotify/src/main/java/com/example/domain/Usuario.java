@@ -111,6 +111,14 @@ public class Usuario extends Persona {
 		return fecha;
 	}
 
+	public String getPassword()
+	{
+		return password;
+	}
+	public String getNickname()
+	{
+		return nickname;
+	}
 	public List<Usuario> getSeguidores() {
 		return seguidores_usuario;
 	}

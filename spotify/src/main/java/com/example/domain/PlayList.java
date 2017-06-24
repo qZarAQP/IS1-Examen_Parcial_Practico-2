@@ -42,16 +42,7 @@ public class PlayList {
 	@Column(length = 64)
 	private Long id_cancion;
 	
-	public PlayList(String nombre, Long id_usuario,
-			   Date fecha,Long id_cancion) {
-	this.nombre = nombre;
-	this.id_usuario = id_usuario;
-	this.fecha = fecha;
-	this.estado = true;
-	this.id_cancion=id_cancion;
-}
 
-	
 	/*
 	
 	public List<Cancion> canciones;
@@ -64,11 +55,24 @@ public class PlayList {
     @OneToMany(mappedBy = "id_playlist")
     private List<Cancion> canciones;
 
-
-
 	@ManyToOne
 	@JoinColumn(name = "usuario")
 	private Usuario usuario;
+	
+	
+	
+	public PlayList(String nombre, Long id_usuario,
+			   Date fecha,Long id_cancion) {
+	this.nombre = nombre;
+	this.id_usuario = id_usuario;
+	this.fecha = fecha;
+	this.estado = true;
+	this.id_cancion=id_cancion;
+}
+
+	public Long getId(){
+		return id;
+	}
 	
 	public Long getMostrar_canciones() {
 		return id_cancion;

@@ -5,10 +5,9 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.example.domain.Account;
 import com.example.domain.Administrador;
 import com.example.domain.Persona;
-import com.example.domain.Transfer;
+
 import com.example.domain.Usuario;
 
 import com.example.repository.UserRepository;
@@ -34,5 +33,19 @@ public class LoginService {
 			throw new Exception("No esta registrado");
 		}
 	}
+	
+	public Boolean registro(Usuario usuario) throws Exception {
+		
+		if (usuario != null ){
+			
+			userRepository.save(usuario);
+			return true;
+			
+		} else {
+			throw new Exception("Error");
+		}
+		
+	}
+	
 	};
 	

@@ -23,7 +23,7 @@ function login() {
 	//alert("transfiriendo: " + monto + " desde " + origen + " a " + destino);
 
 	var user = {
-		"usuario": _usuario,
+		"nickname": _usuario,
 		"password": _password
 	};
 

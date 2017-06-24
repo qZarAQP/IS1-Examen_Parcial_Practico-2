@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-import com.example.domain.Account;
 import com.example.domain.Administrador;
 import com.example.domain.Album;
 import com.example.domain.Artista;
@@ -28,41 +27,40 @@ import com.example.domain.Cancion;
 import com.example.domain.Usuario;
 import com.example.domain.Persona;
 import com.example.domain.PlayList;
-import com.example.repository.AccountRepository;
+
 import com.example.repository.AdminRepository;
 import com.example.repository.AlbumRepository;
 import com.example.repository.ArtistRepository;
 import com.example.repository.CancionRepository;
 import com.example.repository.UserRepository;
-import com.example.repository.IAccountRepository;
+
 import com.example.repository.PersonaRepository;
 import com.example.repository.PlayListRepository;
 import com.example.repository.UserRepository;
+import com.example.repository.service.CancionService;
 import com.example.repository.service.LoginService;
-import com.example.repository.service.TransferService;
+import com.example.repository.service.PlayListService;
 
 @Controller
 @SpringBootApplication
 public class TransferApplication {
 
-	@Autowired
-	TransferService transferService;
+	
 
 	@Autowired
 	LoginService loginService;
 
 	@Autowired
-	//IAccountRepository accountRepository;
-	AccountRepository accountRepository;
-	
-	@Autowired
-	UserRepository userRepository;
+	PlayListService playlistService;
 	
 	@Autowired
 	PersonaRepository personaRepository;
 	
 	@Autowired
-	CancionRepository cancionRepository;
+	UserRepository userRepository;
+	
+	@Autowired
+	CancionService cancionService;
 	
 	@Autowired
 	ArtistRepository artistRepository;
@@ -79,14 +77,7 @@ public class TransferApplication {
 	void init() {
 	//	Usuario a = new Usuario();
 		
-		Account c1 = new Account();
-		c1.setNumero("001");
-		c1.setSaldo(1000d);
-		Account c2 = new Account();
-		c2.setNumero("002");
-		c2.setSaldo(100d);
-		accountRepository.save(c1);
-		accountRepository.save(c2);
+		
 		Integer i=0; 
 		
 		for(i=0;i<10;i++)
@@ -119,106 +110,73 @@ public class TransferApplication {
 	}
 	*/
 	
-	@RequestMapping(value = "/transferir", method = RequestMethod.POST)
-	 	@ResponseBody
-	 	Boolean transferir(@RequestBody TransferBean transfer) throws Exception {
-	 		transferService.transfer(transfer.origen, transfer.destino, transfer.monto);
-	 		return Boolean.TRUE;
-	  	}
-
 
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	 	@ResponseBody
-	 	Boolean login(@RequestBody User user) throws Exception {
-		System.out.println("guardando: *********************************" );
+	 	Boolean login(@RequestBody Usuario user) throws Exception {
+		System.out.println("guardando: *******login***"+user.getNickname()+"**********" );
 
 		
-	 		loginService.login(user.usuario, user.password);
-	 		return registro(user);
+	 		//loginService.login(user.usuario, user.password);
+ 		loginService.login(user.getNickname(), user.getPassword());
+
+	 		return Boolean.TRUE;
 	  	}
 
 	@RequestMapping(value = "/registro", method = RequestMethod.POST)
  	@ResponseBody
- 	Boolean registro(@RequestBody User user) throws Exception {
+ 	Boolean registro(@RequestBody Usuario user) throws Exception {
 	System.out.println("guardando: *************************** registro******" );
 
 	
- 		loginService.login(user.usuario, user.password);
+ 		loginService.registro(user);
  		return Boolean.TRUE;
   	}
 	
 	
-	
-/*
-	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public @ResponseBody Map<String,Object> getSaved( users){
-		Map<String,Object> map = new HashMap<String,Object>();
-		
-		if(userServices.saveOrUpdate(users)){
-			map.put("status","200");
-			map.put("message","Your record have been saved successfully");
-		}
-		
-		return map;
-	}
+
 	
 	
-	
-	*/
-	
-	/*
-	@RequestMapping("/login")
-  	@ResponseBody
-  	Boolean login(@RequestParam String usuario, @RequestParam String password) throws Exception {
-		loginService.login(usuario,password);
- 		return Boolean.TRUE;}
-*/
-	@RequestMapping("/cuentas")
-  	@ResponseBody
-  	Collection<Account> listarCuentas() {
-  	return accountRepository.findAll();
-  	}
-	
-	
-	/*
 	
 	///******Metodos de Usuario**********
-	@RequestMapping("/usuarios")
+	/*@RequestMapping("/usuarios")
   	@ResponseBody
   	Collection<Usuario> listarUsuario() {
   	return userRepository.findAll();
-  	}
+  	}*/
+	
 	//----crear nuevo play list solo que no se como XD
 	@RequestMapping(value = "/crearPlayList", method = RequestMethod.POST)
  	@ResponseBody
- 	Boolean crearPlayList(@RequestBody TransferBean transfer) throws Exception {
- 		transferService.transfer(transfer.origen, transfer.destino, transfer.monto);
+ 	Boolean crearPlayList(@RequestBody PlayList playlist) throws Exception {
+		playlistService.crearPlayList(playlist);
  		return Boolean.TRUE;
   	}
+	
 	
 	//----eliminar  play list solo que no se como XD x3!
 	@RequestMapping(value = "/deletedPlayList", method = RequestMethod.POST)
  	@ResponseBody
- 	Boolean deletedPlayList(@RequestBody TransferBean transfer) throws Exception {
- 		transferService.transfer(transfer.origen, transfer.destino, transfer.monto);
+ 	Boolean deletedPlayList(@RequestBody PlayList playlist) throws Exception {
+		playlistService.deletedPlayList(playlist);
  		return Boolean.TRUE;
   	}
 	
-	
+	/*
 	///******Metodos de Admin**********
 	@RequestMapping("/admin")
   	@ResponseBody
   	Collection<Administrador> listarAdmin() {
   	return adminRepository.findAll();
   	}
-	
+	*/
 	
 	///******Metodos de Cancion**********
 	@RequestMapping("/songs")
   	@ResponseBody
   	Collection<Cancion> listarCanciones() {
-  	return cancionRepository.findAll();
+  	return cancionService.listarCanciones();
   	}
 	
 	
@@ -226,9 +184,9 @@ public class TransferApplication {
 	@RequestMapping("/playlists")
   	@ResponseBody
   	Collection<PlayList> listarPlayLists() {
-  	return playListRepository.findAll();
+  	return playlistService.listarPlayLists();
   	}
-	
+	/*
 	
 	///******Metodos de Album**********
 	@RequestMapping("/albums")
@@ -242,15 +200,3 @@ public class TransferApplication {
 	}
 }
 
-class TransferBean {
-	 	public String origen;
-	 	public String destino;
-	 	public Double monto;
-}
-
-
-class User {
-	 	public String usuario;
-	 	public String password;
-	 
-}

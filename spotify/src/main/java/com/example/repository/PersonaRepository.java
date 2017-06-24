@@ -9,7 +9,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import org.springframework.stereotype.Component;
 
-import com.example.domain.Account;
 import com.example.domain.Persona;
 
 //@Component
