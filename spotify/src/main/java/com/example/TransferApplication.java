@@ -112,7 +112,7 @@ public class TransferApplication {
 	
 
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/loginAnt", method = RequestMethod.POST)
 	 	@ResponseBody
 	 	Boolean login(@RequestBody Usuario user) throws Exception {
 		System.out.println("guardando: *******login***"+user.getNickname()+"**********" );
