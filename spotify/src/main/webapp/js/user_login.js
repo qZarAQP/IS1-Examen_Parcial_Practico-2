@@ -28,9 +28,10 @@ function login() {
 	};
 
 	$.postJSON( "login", user,function( data ) {
-			
 	
 	});
+	
+	location.href="/album.html";
 }
 
 

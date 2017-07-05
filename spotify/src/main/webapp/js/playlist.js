@@ -22,9 +22,11 @@ function crear_playlist() {
 		"nombre": _nombre
 	};
 	$.postJSON( "crearPlayList", playlist,function( data ) {
-			
+		alert("Se creo tu lista")
+		
 	
 	});
+	
 }
 
 
