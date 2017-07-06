@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Collection;
 
-/**
- * Created by Usuario on 27/06/2017.
- */
+
 @Controller
 public class CancionController {
     private final Logger logger = LoggerFactory.getLogger(CancionController.class);
