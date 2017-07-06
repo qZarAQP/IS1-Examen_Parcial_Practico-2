@@ -9,7 +9,6 @@ import com.example.domain.Administrador;
 import com.example.domain.Persona;
 
 import com.example.domain.Usuario;
-
 import com.example.repository.UserRepository;
 @Component
 public class LoginService {
