@@ -31,7 +31,7 @@ function login() {
 	
 	});
 	
-	location.href="/album.html";
+	location.href="/index.html";
 }
 
 
@@ -45,7 +45,6 @@ function registrate() {
 	var _email = $("#email").val();
 	var _password = $("#password").val();
 	var _telefono = $("#telefono").val();
-	
 	
 	//alert("transfiriendo: " + monto + " desde " + origen + " a " + destino);
 
@@ -62,6 +61,8 @@ function registrate() {
 			
 	
 	});
+	
+	location.href="/index.html";
 }
 
 

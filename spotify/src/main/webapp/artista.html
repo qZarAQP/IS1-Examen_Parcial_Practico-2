@@ -11,7 +11,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="js/user_login.js"></script>
+	<script type="text/javascript" src="js/artista.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	
 
@@ -19,6 +19,33 @@
 </head>
 
 <body>
+
+<div id="menuPrincipal">
+	<a href="#cuentas" onclick="mostrarCuentas();">Cuentas</a>
+	<br i/>
+	<a href="">Transferencias</a>
+</div>
+
+<div style="display: none;" id="listadoCuentas">
+<h2  >Listado de Cuentas</h2>
+<ul   id="cuentas"></ul>
+<a href="javascript: mostrarMenuPrincipal();">Menu Principal</a>
+</div>
+
+<div style="display: none;" id="modificarCuenta">
+	<table>
+		<tr>
+			<td>Numero:</td>
+			<td><input id="numero" /> </td>
+		</tr>
+		<tr>
+			<td>Saldo:</td>
+			<td><input id="saldo" /> </td>
+		</tr>
+	</table>
+</div>
+
+
   <div class="login">
 	<h1>Artista</h1>
 
@@ -33,7 +60,6 @@
 		<td>Descripcion:</td>
 		<td>    	<input type="text" id="descripcion" name="u" placeholder="Descripcion" required="required"  id="descripcion" /></td>
 	</tr>
-	
 	
 	
 	<tr>

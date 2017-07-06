@@ -1,37 +1,114 @@
 <html>
 <head>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="js/lib.js"></script>
+	<script type="text/javascript" src="js/artista.js"></script>
 </head>
 <body>
 
+<div id="menuPrincipal">
+	<a href="index.html" onclick="mostrarAlbum();">Album</a>
+	<button type="submit" class="btn btn-primary btn-block btn-large"  onclick="mostrarAlbum();">Album</button></td>
+	
+	<br />
+	<a href="" onclick="mostrarCancion();">Cancion</a>
+	<br />
+	<a href="" onclick="mostrarArtista();" >Artista</a>
+	
+</div>
 
+<div style="display: none;" id="listadoCuentas">
+<h2  >Listado de Cuentas</h2>
+<ul   id="cuentas"></ul>
+<a href="javascript: mostrarMenuPrincipal();">Menu Principal</a>
+</div>
 
-<h2>Listado de Cuentas</h2>
-<ul id="cuentas"></ul>
+<div style="display: none;" id="mostrarAlbum">
+	<table>
+		 <div class="login">
+		<h1>Album</h1>
+	
+	<table>
+		<tbody>
+		<tr>
+			<td>Nombre:</td>
+			<td><input type="text" id="album" name="u" placeholder="Album" required="required" />
+			</td>
+		</tr>
+		<tr>
+			<td>Artista:</td>
+			<td>    	<input type="text" id="artista" name="u" placeholder="Artista" required="required"  id="artista" /></td>
+		</tr>
+		<tr>
+			<td>    <button type="submit" class="btn btn-primary btn-block btn-large"  onclick="registrate()">OK</button></td>
+			<td></td>
+		</tr>
+		</tbody>
+	</table>
+	   
+	    
+	</div>
+</div>
 
-<h2>Transferencia</h2>
+<div style="display: none;" id="mostrarArtista">
+
+  <div class="login">
+	<h1>Artista</h1>
 
 <table>
 	<tbody>
 	<tr>
-		<td>Origen:</td>
-		<td><input id="origen" /></td>
+		<td>Nombre:</td>
+		<td><input type="text" id="artista" name="u" placeholder="Artista" required="required" />
+		</td>
 	</tr>
 	<tr>
-		<td>Destino:</td>
-		<td><input id="destino" /></td>
+		<td>Descripcion:</td>
+		<td>    	<input type="text" id="descripcion" name="u" placeholder="Descripcion" required="required"  id="descripcion" /></td>
 	</tr>
+	
+	
 	<tr>
-		<td>Monto:</td>
-		<td><input id="monto" /></td>
-	</tr>
-	<tr>
-		<td><button onclick="transferir()">Transferir</button></td>
+		<td>    <button type="submit" class="btn btn-primary btn-block btn-large"  onclick="registrate()">OK</button></td>
 		<td></td>
 	</tr>
 	</tbody>
 </table>
+   
+    
+</div>
+</div>
 
+<div style="display: none;" id="mostrarCancion">
+<div class="login">
+	<h1>Cancion</h1>
+
+<table>
+	<tbody>
+	<tr>
+		<td>Nombre:</td>
+		<td><input type="text" id="cancion" name="u" placeholder="Cancion" required="required" />
+		</td>
+	</tr>
+	<tr>
+		<td>Artista:</td>
+		<td>    	<input type="text" id="artista" name="u" placeholder="Artista" required="required"  id="artista" /></td>
+	</tr>
+	<tr>
+		<td>Album:</td>
+		<td>    	<input type="text"  name="u" placeholder="Album" required="required"  id="album" /></td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td>    <button type="submit" class="btn btn-primary btn-block btn-large"  onclick="registrate()">OK</button></td>
+		<td></td>
+	</tr>
+	</tbody>
+</table>
+   
+    
+</div>
+</div>
 </body>
 </html>

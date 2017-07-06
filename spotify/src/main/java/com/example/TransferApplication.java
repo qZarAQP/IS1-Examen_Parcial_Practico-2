@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+import com.example.domain.Account;
 import com.example.domain.Administrador;
 import com.example.domain.Album;
 import com.example.domain.Artista;
@@ -137,15 +137,22 @@ public class TransferApplication {
 	
 
 	
-	
+
+
+	@RequestMapping("/usuario")
+	@ResponseBody
+	Usuario listaCuenta(@RequestParam Long numero) {
+		return userRepository.findOne(numero);
+	}
+
 	
 	///******Metodos de Usuario**********
-	/*@RequestMapping("/usuarios")
+	@RequestMapping("/usuarios")
   	@ResponseBody
   	Collection<Usuario> listarUsuario() {
   	return userRepository.findAll();
-  	}*/
-	
+  	}
+	/*
 	//----crear nuevo play list solo que no se como XD
 	@RequestMapping(value = "/crearPlayList", method = RequestMethod.POST)
  	@ResponseBody
