@@ -12,8 +12,6 @@ import com.example.domain.Persona;
 import com.example.domain.PlayList;
 import com.example.domain.Usuario;
 import com.example.repository.CancionRepository;
-import com.example.repository.PlayListRepository;
-import com.example.repository.UserRepository;
 @Component
 public class CancionService {
 

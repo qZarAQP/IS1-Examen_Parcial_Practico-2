@@ -111,6 +111,16 @@ public class Usuario extends Persona {
 		return fecha;
 	}
 
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
 	public String getPassword()
 	{
 		return password;
