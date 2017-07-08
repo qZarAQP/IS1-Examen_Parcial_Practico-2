@@ -73,6 +73,7 @@ public class LoginService {
     }
 
 };
+<<<<<<< HEAD
 /*
 <<<<<<< HEAD
 	@Autowired
@@ -116,3 +117,6 @@ public class LoginService {
 >>>>>>> ebcdafdc285a91ba6766435d0a1c241a9d06e35c
 
 */
+=======
+
+>>>>>>> 061f05219f5ca54273c4cae7000c3b440b28c23b

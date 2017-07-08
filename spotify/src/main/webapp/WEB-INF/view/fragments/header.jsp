@@ -44,7 +44,7 @@
                 <li><a href="/artistas">Artistas<span style="font-size:16px;" class="pull-right hidden-xs showopacity  glyphicon glyphicon-user"></span></a></li>
 
                 <li class="divider"></li>
-                <li ><a href="#">Playlist<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
+                <li ><a href="/playLists">Playlist<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
                 <li ><a href="#">Tags<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
             </ul>
         </div>
