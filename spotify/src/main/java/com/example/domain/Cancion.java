@@ -40,22 +40,24 @@ public class Cancion {
 
 	private Long id_playlist;
 	
-	
+	public Cancion(){
+}
 
-	public Cancion(String nombre, Long id_album,
+
+	@ManyToOne
+	@JoinColumn(name = "album")
+	private Album album;
+	
+	public Cancion(String nombre, Album id_album,
 				  Long id_artista, Date fecha) {
 		this.nombre = nombre;
-		this.id_album = id_album;
+		this.album = id_album;
 		this.fecha = fecha;
 		this.estado = true;
 		this.valoracion=0;
 	}
 	
 
-	@ManyToOne
-	@JoinColumn(name = "album")
-	private Album album;
-	
 
 
 	

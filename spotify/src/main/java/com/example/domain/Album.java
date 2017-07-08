@@ -36,6 +36,9 @@ public class Album {
 	@Column
 	private Date fecha;
 	
+	public Album(){
+		
+	}
 
 	public Album(String nombre, 
 				  Long id_artista, Date fecha) {

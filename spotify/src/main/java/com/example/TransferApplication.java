@@ -63,6 +63,9 @@ public class TransferApplication {
 	CancionService cancionService;
 	
 	@Autowired
+	CancionRepository cancionRepository;
+	
+	@Autowired
 	ArtistRepository artistRepository;
 	
 	@Autowired
@@ -85,15 +88,16 @@ public class TransferApplication {
 	//	Persona p1 =new Persona("persona"+Integer.toString(i), "persona"+Integer.toString(i)+"@ucsp",i*10000, Date.from(Instant.EPOCH));
 		Usuario u1 =new Usuario("user"+Integer.toString(i),"user"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"user"+Integer.toString(i),"user"+Integer.toString(i));
 		Administrador a1 =new Administrador("admin"+Integer.toString(i),"admin"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"admin"+Integer.toString(i),"admin"+Integer.toString(i));
-//		Artista s1 =new Artista("artist"+Integer.toString(i),"artist"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"artist"+Integer.toString(i),"artist"+Integer.toString(i));
-	//	Cancion c=new Cancion("song"+Integer.toString(i),Integer.toUnsignedLong(i),Integer.toUnsignedLong(i),Date.from(Instant.EPOCH));
-		
+		Artista s1 =new Artista("artist"+Integer.toString(i),"artist"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"artist"+Integer.toString(i),"artist"+Integer.toString(i));
+		Album al1=new Album("albm"+Integer.toString(i),Integer.toUnsignedLong(i),Date.from(Instant.EPOCH));
+		Cancion c=new Cancion("song"+Integer.toString(1+i),al1,Integer.toUnsignedLong(i),Date.from(Instant.EPOCH));
 
 	//	personaRepository.save(p1);
 		userRepository.save(u1);
 		adminRepository.save(a1);
-	//	artistRepository.save(s1);
-	//	cancionRepository.save(c);
+		artistRepository.save(s1);
+		albumRepository.save(al1);
+		cancionRepository.save(c);
 		
 		}
 		
@@ -165,12 +169,6 @@ public class TransferApplication {
   	}
 	*/
 	
-	///******Metodos de Cancion**********
-	@RequestMapping("/songs")
-  	@ResponseBody
-  	Collection<Cancion> listarCanciones() {
-  	return cancionService.listarCanciones();
-  	}
 	
 	
 	///******Metodos de PlayList**********

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Collection;
 
@@ -28,4 +29,15 @@ public class CancionController {
 
         return "canciones";
     }
+    
+
+	///******Metodos de Cancion**********
+	@RequestMapping("/songs")
+  	@ResponseBody
+  	Collection<Cancion> listarCanciones() {
+		Collection<Cancion> c=cancionService.listarCanciones();
+        System.out.println("guardando: *******login***"+c.size()+"**********" );
+
+  	return c;
+  	}
 }

@@ -14,6 +14,7 @@ import com.example.domain.Administrador;
 import com.example.domain.Artista;
 
 
+@Component
 public  interface ArtistRepository extends CrudRepository<Artista, Long>  {
 
 	

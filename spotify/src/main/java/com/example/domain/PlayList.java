@@ -59,7 +59,9 @@ public class PlayList {
 	@JoinColumn(name = "usuario")
 	private Usuario usuario;
 	
-	
+	public PlayList(){
+	}
+
 	
 	public PlayList(String nombre, Long id_usuario,
 			   Date fecha,Long id_cancion) {

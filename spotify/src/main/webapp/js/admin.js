@@ -34,16 +34,13 @@ function login() {
 	});
 	
 	$("#loginhead").hide();
-	$("#menu").show();
+	$("#artista_menu").show();
 	header();
 	
 }
 
 function header() {
-	//alert("*nsssssssssssssssssssssssss");
 	
-	document.getElementById('head').innerHTML = 'bdsc';
-	//alert("*");
 	$.getJSON( "session_adm", function( data ) {
 		//console.log(data);
 		
@@ -55,14 +52,34 @@ function header() {
 	});	
 }
 
-function mostrarregistro() {
+function artista() {
 
 	$("#loginhead").hide();
-	$("#registro").show();
+	$("#artista_menu").hide();
+	$("#artista_v").show();
 
 }
 
 
+function album() {
+
+	$("#loginhead").hide();
+	$("#artista_menu").hide();
+
+	$("#album_v").show();
+	
+
+}
+
+
+function cancion() {
+
+	$("#loginhead").hide();
+	$("#artista_menu").hide();
+
+	$("#cancion_v").show();
+
+}
 
 function mostrarconfiguracion() {
 
@@ -97,6 +114,76 @@ function configuracion()
 
 	
 	
+}
+
+
+
+function registraCancion() {
+	
+	
+	var cancion = $("#cancion").val();
+	var artista = $("#artista").val();
+	var album = $("#album").val();
+
+	
+	//alert("transfiriendo: " + monto + " desde " + origen + " a " + destino);
+
+	var user = {
+		"cancion": cancion,
+		"artista": artista,
+		"album": album
+	};
+
+	$.postJSON( "registraCancion", user,function( data ) {
+			
+	
+	});
+
+}
+
+
+
+function registraAlbum() {
+	
+	
+	var artista = $("#artista").val();
+	var album = $("#album").val();
+
+	
+	//alert("transfiriendo: " + monto + " desde " + origen + " a " + destino);
+
+	var user = {
+		"artista": artista,
+		"nombre": album
+	};
+
+	$.postJSON( "registraAlbum", user,function( data ) {
+			
+	
+	});
+
+}
+
+
+function registraArtista() {
+	
+	
+	var artista = $("#artista_v #artista").val();
+	var descripcion = $("#descripcion").val();
+
+	
+	//alert("transfiriendo: " + monto + " desde " + origen + " a " + destino);
+
+	var user = {
+		"nickname": artista
+		//"descripcion": descripcion
+	};
+
+	$.postJSON( "registraArtista", user,function( data ) {
+			
+	
+	});
+
 }
 
 

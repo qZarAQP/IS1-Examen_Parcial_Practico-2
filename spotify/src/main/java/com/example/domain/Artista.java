@@ -41,6 +41,10 @@ public class Artista extends Persona{
 	@Column
 	private Date fecha;
 	
+public Artista(){
+		
+	}
+
 	public Artista(String nombre, String email, Integer telefono, Date fecha,String nickname,String password) {
 		super(nombre, email, telefono, fecha);
 		// TODO Auto-generated constructor stub
@@ -62,8 +66,7 @@ public class Artista extends Persona{
 
 
 
-    
-
+ 
 
 
 	public Date getFecha() {
@@ -84,6 +87,12 @@ public class Artista extends Persona{
 	public void cargar_canciones()
 	{
 		
+	}
+	
+
+	public String getNickname()
+	{
+		return nickname;
 	}
 
 
