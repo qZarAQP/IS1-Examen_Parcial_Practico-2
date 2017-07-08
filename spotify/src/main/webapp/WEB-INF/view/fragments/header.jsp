@@ -19,7 +19,7 @@
         </div>
         <div id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#">${userSession.nickname}</a></li>
+                <li class="active"><a  href="/configuracion">${userSession.nickname}</a></li>
                 <li class="active"><a href="${cerrarSesion}">Cerrar sesion</a></li>
             </ul>
         </div>

@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.domain.Account;
 import com.example.domain.Administrador;
 import com.example.domain.Album;
 import com.example.domain.Artista;
@@ -37,6 +36,7 @@ import com.example.repository.UserRepository;
 import com.example.repository.service.CancionService;
 import com.example.repository.service.LoginService;
 import com.example.repository.service.PlayListService;
+import com.example.repository.service.UserService;
 
 @Controller
 @SpringBootApplication
@@ -46,6 +46,9 @@ public class TransferApplication {
 
 	@Autowired
 	LoginService loginService;
+
+	@Autowired
+	UserService userService;
 
 	@Autowired
 	PlayListService playlistService;
@@ -120,20 +123,6 @@ public class TransferApplication {
 
 	 		return Boolean.TRUE;
 	  	}
-
-	@RequestMapping(value = "/registro", method = RequestMethod.POST)
- 	@ResponseBody
- 	Boolean registro(@RequestBody Usuario user) throws Exception {
-	System.out.println("guardando: *************************** registro******" );
-
-	
- 		loginService.registro(user);
- 		return Boolean.TRUE;
-  	}
-	
-	
-
-	
 
 
 	@RequestMapping("/usuario")

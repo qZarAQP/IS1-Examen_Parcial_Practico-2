@@ -28,7 +28,12 @@ public class Administrador extends Persona{
 	@Column(nullable = false)
 	private Date fecha = new Date();
 	
-	
+
+	public Administrador(){
+		
+	}
+
+
 	public Administrador(String nombre, String email, Integer telefono,Date fecha,String nickname,String password) {
 		super(nombre, email, telefono, fecha);
 		// TODO Auto-generated constructor stub
@@ -37,15 +42,17 @@ public class Administrador extends Persona{
 		this.password=password;
 	}
 	
-	public String getpassword() {
+	public String getPassword() {
 		return password;
+	}
+	public String getNickname()
+	{
+		return nickname;
 	}
 
 	public void setemail(String password) {
 		this.password = password;
 	}
-
-	
 
 	
 	public Date getfecha() {
@@ -55,7 +62,7 @@ public class Administrador extends Persona{
 	public void setfecha(Date created) {
 		this.fecha = created;
 	}
-	
+	/*
 	
 	public void login(){
 		
@@ -96,7 +103,7 @@ public class Administrador extends Persona{
 	{
 		
 	}
-	
+	*/
 	
 	
 	

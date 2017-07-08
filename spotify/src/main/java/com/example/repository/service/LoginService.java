@@ -21,13 +21,43 @@ public class LoginService {
     @Autowired
     UserRepository userRepository;
 
+	private Usuario user;
+    
+
+
+
+	public Boolean login(String usuario, String password) throws Exception {
+		System.out.println("guardando: " );
+		
+		
+		if ((usuario != "" )&& (password !="") ){
+			
+			Usuario user= userRepository.validarLogin(usuario,password);
+			if(user!=null){
+			return true;
+				}else { return false;}
+			
+		} else {
+			throw new Exception("No esta registrado");
+		}
+	}
+	
+	public Usuario session( String usuario) {
+		System.out.println("guardando: nnnnnnnnnnnnnnn"+usuario );
+		
+
+		return userRepository.findByNickname(usuario);
+	}
+	
+	
+/*
 
     public Usuario login(String nickname, String password) throws Exception {
         logger.debug("Metodo login[usuario=" + nickname + "][password=" + password + "]");
         Usuario usuario = userRepository.validarLogin(nickname, password);
 
         return usuario;
-    }
+    }*/
 
     public Boolean registro(Usuario usuario) throws Exception {
 
@@ -43,7 +73,7 @@ public class LoginService {
     }
 
 };
-
+/*
 <<<<<<< HEAD
 	@Autowired
 	UserRepository userRepository;
@@ -84,3 +114,5 @@ public class LoginService {
 	
 =======
 >>>>>>> ebcdafdc285a91ba6766435d0a1c241a9d06e35c
+
+*/

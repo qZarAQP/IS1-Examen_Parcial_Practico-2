@@ -36,6 +36,10 @@ public class Persona {
 	}
 	public Persona(){}
 	
+
+	public Long getid() {
+		return id;
+	}
 	
 	
 

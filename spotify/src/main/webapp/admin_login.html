@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+    <title>My Spotify</title>
+    <!-- spring:url value="/resources/core/css/menu.css" var="menuCss" />
+    <spring:url value="/resources/core/css/bootstrap.css" var="bootstrapCss" /-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/admin.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
+ <link rel="stylesheet" type="text/css" href="/resources/core/css/bootstrap.css">
+	 <link rel="stylesheet" type="text/css" href="/resources/core/css/menu.css">
+	
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+
+
+</head>
+<body>
+
+<!-- spring:url value="/" var="urlHome" />
+<spring:url value="/cerrarSesion" var="cerrarSesion" /-->
+
+<nav class="navbar navbar-inverse ">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" >My Spotify</a>
+        </div>
+        <div id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a id="head" href="javascript: mostrarconfiguracion();"></a></li>
+                <li class="active"><a >Cerrar sesion</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar navbar-default sidebar" id="menu"  style="display: none;" style="background-color: #424BB2;" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">MUSICA<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                <li><a href="/canciones"><font color="white">Canciones</font><span style="font-size:16px;" class="pull-right hidden-xs showopacity  glyphicon glyphicon-music"></span></a></li>
+                <li><a href="/albumes">Albumes<span style="font-size:16px;" class="pull-right hidden-xs showopacity  glyphicon glyphicon-tasks"></span></a></li>
+                <li><a href="/artistas">Artistas<span style="font-size:16px;" class="pull-right hidden-xs showopacity  glyphicon glyphicon-user"></span></a></li>
+
+                <li class="divider"></li>
+                <li ><a href="#">Playlist<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
+                <li ><a href="#">Tags<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+  <div class="login" id =loginhead>
+	<h1>Login</h1>
+	
+
+<div align="center">
+
+
+</div>
+    <!-- form method="post"-->
+    	<input type="text" id="usuario" name="u" placeholder="Username" required="required" />
+        <input type="password" id="password"  name="p" placeholder="Password" required="required" />
+        <button href="#session_adm" type="submit" class="btn btn-primary btn-block btn-large"   onclick="login()">Let me in.</button>
+ 
+  <button  type="submit" class="btn btn-primary btn-block btn-large"   onclick="mostrarregistro()">registrate</button>
+    <!-- /form-->
+    
+    
+</div>
+  
+
+
+
+
+
+
+<!-- ***************************** -->
+<div class="container" >
+
+      <div class="login" id =configuracion style="display: none;">
+	
+<table>
+	<tbody>
+	<tr>
+		<td>Cambiar nickname:</td>
+		<td><input type="text" id="nickname" name="u" placeholder="Cancion" required="required" />
+		</td>
+	</tr>
+	<tr>
+		<td>Cambiar contraseña:</td>
+		<td>    	<input type="text" id="password" name="u" placeholder="Artista" required="required"  id="artista" /></td>
+	</tr>
+	<tr>
+		<td>Cambiar e-mail:</td>
+		<td>    	<input type="text"  name="u" placeholder="Album" required="required"  id="email" /></td>
+	</tr>
+	
+	<tr>
+		<td>Cambiar lenguaje:</td>
+		<td>    	<input type="text"  name="u" placeholder="Album" required="required"  id="lenguaje" /></td>
+	</tr>
+	
+	
+	<tr>
+		<td>Desactivar cuenta:</td>
+		<td>  <button type="submit" class="btn btn-primary btn-block btn-large"  onclick="desactivar();">Desactivar cuenta</button></td>
+		
+	</tr>
+	
+	
+	
+	<tr>
+		<td>    <button type="submit" class="btn btn-primary btn-block btn-large"  onclick="configuracion()">OK</button></td>
+		<td></td>
+	</tr>
+	</tbody>
+</table>
+   
+    
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
