@@ -2,6 +2,7 @@ package com.example.repository.service;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,11 +34,11 @@ public class PlayListService {
 		return true;
 		
 	}
-	public Collection<PlayList> listarPlayLists()
+	public List<PlayList> listarPlayLists(Usuario usuario)
 	{
-		return playlistRepository.findAll();
+		return playlistRepository.findAllsongs(usuario);
 	}
 	
 	
-	};
+}
 	

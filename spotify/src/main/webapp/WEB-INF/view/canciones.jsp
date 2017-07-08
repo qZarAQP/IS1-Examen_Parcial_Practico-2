@@ -12,7 +12,22 @@
 
 <div class="container">
 
-    Canciones
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Accion</th>
+        </tr>
+        </thead>
+
+        <c:forEach var="cancion" items="${listaCanciones}">
+            <tr>
+                <td>${cancion.nombre}
+                </td>
+                <td>Accion</td>
+            </tr>
+        </c:forEach>
+    </table>
 
 </div>
 

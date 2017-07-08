@@ -13,6 +13,12 @@
 <div class="container">
 
     Artistas
+<audio controls>
+
+  <source src="/Users/cesarlaura/Documents/Mp3/Nirvana_Plateau.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+Try it Yourself »
 
 </div>
 

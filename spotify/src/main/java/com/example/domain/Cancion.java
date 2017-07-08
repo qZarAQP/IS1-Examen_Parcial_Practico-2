@@ -22,7 +22,6 @@ public class Cancion {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 
-	
 	@Column
 	private String nombre;
 	
@@ -38,9 +37,14 @@ public class Cancion {
 	@Column
 	private Long id_album;
 
-	private Long id_playlist;
+	@ManyToOne
+	@JoinColumn(name = "id_playlist")
+	private PlayList id_playlist;
+	//private Long id_playlist;
 	
-	
+	public Cancion() {
+		
+	}
 
 	public Cancion(String nombre, Long id_album,
 				  Long id_artista, Date fecha) {
@@ -51,14 +55,11 @@ public class Cancion {
 		this.valoracion=0;
 	}
 	
-
 	@ManyToOne
 	@JoinColumn(name = "album")
 	private Album album;
 	
 
-
-	
 	@ManyToMany
 	@JoinTable(name = "reproduccion", 
 		inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
@@ -71,44 +72,89 @@ public class Cancion {
 		inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
 		joinColumns = @JoinColumn(name = "cancion_id", referencedColumnName = "id"))
 	private List<Usuario> val_user;
-	
 
-	public String getnombre(long id_cancion) {
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
 		return nombre;
 	}
-	
-	public boolean getestado(long id_cancion) {
-		return estado;
-	}
-	
-	public int getvaloracion(long id_cancion) {
-		return valoracion;
-	}
-	
-	public Date getfecha(long id_cancion) {
-		return fecha;
-	}
-	
-	public void setnombre(String nombre) {
+
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	public void setestado(boolean estado) {
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
 
-
-	public void setfecha_registro() {
-		
+	public Date getFecha() {
+		return fecha;
 	}
 
-	public void reproducir() {
-		
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public int getValoracion() {
+		return valoracion;
+	}
+
+	public void setValoracion(int valoracion) {
+		this.valoracion = valoracion;
+	}
+
+	public Long getId_album() {
+		return id_album;
+	}
+
+	public void setId_album(Long id_album) {
+		this.id_album = id_album;
+	}
+
+	public PlayList getId_playlist() {
+		return id_playlist;
+	}
+
+	public void setId_playlist(PlayList id_playlist) {
+		this.id_playlist = id_playlist;
+	}
+
+	public Album getAlbum() {
+		return album;
+	}
+
+	public void setAlbum(Album album) {
+		this.album = album;
+	}
+
+	public List<Usuario> getReprod_user() {
+		return reprod_user;
+	}
+
+	public void setReprod_user(List<Usuario> reprod_user) {
+		this.reprod_user = reprod_user;
+	}
+
+	public List<Usuario> getVal_user() {
+		return val_user;
+	}
+
+	public void setVal_user(List<Usuario> val_user) {
+		this.val_user = val_user;
 	}
 	
-	public void getinformacion() {
-		
-	}
+
+	
 	/*
 	public List<Usuario> getUsuario() {
 		return reprod_user;

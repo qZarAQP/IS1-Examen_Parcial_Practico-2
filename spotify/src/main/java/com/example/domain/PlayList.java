@@ -25,13 +25,12 @@ public class PlayList {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-
 	@Column(length = 64)
 	private String nombre;
 
 	
-	@Column(length = 64)
-	private Long id_usuario;
+	//@Column(length = 64)
+	//private Long id_usuario;
 	
 	@Column
 	private Boolean estado;
@@ -59,36 +58,78 @@ public class PlayList {
 	@JoinColumn(name = "usuario")
 	private Usuario usuario;
 	
-	
-	
-	public PlayList(String nombre, Long id_usuario,
-			   Date fecha,Long id_cancion) {
-	this.nombre = nombre;
-	this.id_usuario = id_usuario;
-	this.fecha = fecha;
-	this.estado = true;
-	this.id_cancion=id_cancion;
-}
-
-	public Long getId(){
-		return id;
+	public PlayList(){
+		
 	}
 	
-	public Long getMostrar_canciones() {
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public Long getId_cancion() {
 		return id_cancion;
 	}
 
-	public Boolean reproducir() {
-		return true;
+	public void setId_cancion(Long id_cancion) {
+		this.id_cancion = id_cancion;
 	}
-	
-	public Boolean agregar_cancion() {
-		return true;
+
+	public List<Cancion> getCanciones() {
+		return canciones;
 	}
+
+	public void setCanciones(List<Cancion> canciones) {
+		this.canciones = canciones;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public PlayList(String nombre, Long usuario,
+			   Date fecha,Long id_cancion) {
+		this.nombre = nombre;
+		//this.usuario = usuario;
+		this.fecha = fecha;
+		this.estado = true;
+		this.id_cancion=id_cancion;
+	}
+
 	
-	public Boolean eliminar_cancion() {
-		return true;
-	}	
+
+		
 //verificando conflictosss
 }
 	

@@ -80,22 +80,33 @@ public class TransferApplication {
 		
 		Integer i=0; 
 		
-		for(i=0;i<10;i++)
+		/*for(i=0;i<10;i++)
 		{
-	//	Persona p1 =new Persona("persona"+Integer.toString(i), "persona"+Integer.toString(i)+"@ucsp",i*10000, Date.from(Instant.EPOCH));
-		Usuario u1 =new Usuario("user"+Integer.toString(i),"user"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"user"+Integer.toString(i),"user"+Integer.toString(i));
-		Administrador a1 =new Administrador("admin"+Integer.toString(i),"admin"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"admin"+Integer.toString(i),"admin"+Integer.toString(i));
-//		Artista s1 =new Artista("artist"+Integer.toString(i),"artist"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"artist"+Integer.toString(i),"artist"+Integer.toString(i));
-	//	Cancion c=new Cancion("song"+Integer.toString(i),Integer.toUnsignedLong(i),Integer.toUnsignedLong(i),Date.from(Instant.EPOCH));
+		//	Persona p1 =new Persona("persona"+Integer.toString(i), "persona"+Integer.toString(i)+"@ucsp",i*10000, Date.from(Instant.EPOCH));
+			Usuario u1 =new Usuario("user"+Integer.toString(i),"user"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"user"+Integer.toString(i),"user"+Integer.toString(i));
+			Administrador a1 =new Administrador("admin"+Integer.toString(i),"admin"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"admin"+Integer.toString(i),"admin"+Integer.toString(i));
+	//		Artista s1 =new Artista("artist"+Integer.toString(i),"artist"+Integer.toString(i)+"@ucsp",i*10000,Date.from(Instant.EPOCH),"artist"+Integer.toString(i),"artist"+Integer.toString(i));
+		//	Cancion c=new Cancion("song"+Integer.toString(i),Integer.toUnsignedLong(i),Integer.toUnsignedLong(i),Date.from(Instant.EPOCH));
+			
+	
+		//	personaRepository.save(p1);
+			userRepository.save(u1);
+			adminRepository.save(a1);
+		//	artistRepository.save(s1);
+		//	cancionRepository.save(c);
+			
+			
 		
-
-	//	personaRepository.save(p1);
+		}*/
+		
+		Usuario u1 =new Usuario("user0","user0@ucsp",0,Date.from(Instant.EPOCH),"user0","user0");
 		userRepository.save(u1);
-		adminRepository.save(a1);
-	//	artistRepository.save(s1);
-	//	cancionRepository.save(c);
 		
-		}
+		PlayList p = new PlayList();
+		p.setNombre("PlayList 1");
+		p.setUsuario(u1);
+		
+		
 		
 		
 		
@@ -166,19 +177,19 @@ public class TransferApplication {
 	*/
 	
 	///******Metodos de Cancion**********
-	@RequestMapping("/songs")
+	/*@RequestMapping("/songs")
   	@ResponseBody
   	Collection<Cancion> listarCanciones() {
   	return cancionService.listarCanciones();
-  	}
+  	}*/
 	
 	
 	///******Metodos de PlayList**********
-	@RequestMapping("/playlists")
+	/*@RequestMapping("/playlists")
   	@ResponseBody
   	Collection<PlayList> listarPlayLists() {
   	return playlistService.listarPlayLists();
-  	}
+  	}*/
 	/*
 	
 	///******Metodos de Album**********
@@ -192,4 +203,5 @@ public class TransferApplication {
 		SpringApplication.run(TransferApplication.class, args);
 	}
 }
+
 

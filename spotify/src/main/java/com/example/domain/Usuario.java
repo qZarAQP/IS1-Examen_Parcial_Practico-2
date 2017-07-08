@@ -21,10 +21,21 @@ import javax.persistence.SequenceGenerator;
 
 
 @Entity
-@PrimaryKeyJoinColumn(referencedColumnName="id")
 public class Usuario extends Persona {
 
-	
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
 
 	@Column(length = 64)
 	private String nickname;
@@ -88,7 +99,7 @@ public class Usuario extends Persona {
 	
 
     
-    @OneToMany(mappedBy = "id_usuario")
+    @OneToMany(mappedBy = "usuario")
     private List<PlayList> playlists;
 
 	
